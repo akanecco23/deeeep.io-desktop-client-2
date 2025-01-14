@@ -1,0 +1,10 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "Deeeep.io Desktop Client 2",
+  "outputfilename": "Deeeep.io Desktop Client 2",
+  "wailsjsdir": "./frontend",
+  "author": {
+    "name": "Akane Kurokawa",
+    "email": "akanecco23@outlook.com"
+  }
+}
