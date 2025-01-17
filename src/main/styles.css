@@ -1,0 +1,59 @@
+@tailwind components;
+@tailwind utilities;
+
+* {
+	font-family: "Quicksand";
+}
+
+button {
+	outline: none !important;
+}
+
+[id*="ad-"] {
+	display: none !important;
+	background: black;
+}
+
+.ddc-menu-btn {
+	@apply inline-flex justify-center items-center bg-teal-500 hover:bg-teal-600 p-1 border-teal-600 hover:border-teal-700 border-b-4 rounded-xl w-[4.5rem] h-[4.5rem] text-white transition-colors;
+
+	& span {
+		@apply flex flex-col justify-center items-center text-[.9em];
+	}
+	& span span {
+		@apply flex flex-col justify-center items-center text-[.7em];
+	}
+}
+
+.ddc-btn {
+	@apply flex justify-center items-center px-5 py-3 p-1 border-b-4 rounded-2xl min-h-10 text-white transition-colors;
+
+	&.gray {
+		@apply border-gray-600 hover:border-gray-700 bg-gray-500 hover:bg-gray-600;
+	}
+	&.red {
+		@apply bg-red-500 hover:bg-red-600 border-red-600 hover:border-red-700;
+	}
+	&.blue {
+		@apply bg-blue-500 hover:bg-blue-600 border-blue-600 hover:border-blue-700;
+	}
+	&.emerald {
+		@apply border-emerald-600 hover:border-emerald-700 bg-emerald-500 hover:bg-emerald-600;
+	}
+}
+
+.ddc-modal-container {
+	@apply bg-black/50 z-50 fixed top-0 left-0 w-screen h-screen flex items-center justify-center transition-opacity;
+}
+.ddc-modal {
+	@apply relative flex flex-col items-stretch border-gray-700 bg-gray-800 shadow-2xl px-3 py-2 border rounded-xl min-w-80 min-h-20 max-h-[90%];
+}
+.ddc-modal-title {
+	@apply mb-2 font-bold text-center text-gray-200;
+	font-size: 1.3rem;
+	line-height: 1.2em;
+	font-weight: 300;
+}
+.ddc-modal-footer {
+	@apply flex justify-center items-end gap-3 mt-3;
+}

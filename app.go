@@ -19,13 +19,9 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-//go:embed src/script.js
+//go:embed src/dist/script.js
 var script []byte
-
-//go:embed src/styles.css
-var styles []byte
 
 func (a App) domReady(ctx context.Context) {
 	runtime.WindowExecJS(ctx, string(script))
-	runtime.WindowExecJS(ctx, "document.head.appendChild(document.createElement('style')).appendChild(document.createTextNode(`"+string(styles)+"`))")
 }
