@@ -28,7 +28,7 @@ await esbuild.build({
 						config: tailwindConfig,
 					}),
 					cssnano(),
-				]).process(source);
+				]).process(source, { from: undefined });
 				return css;
 			},
 		}),
