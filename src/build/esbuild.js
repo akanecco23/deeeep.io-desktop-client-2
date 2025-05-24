@@ -34,3 +34,12 @@ await esbuild.build({
 		}),
 	],
 });
+
+await esbuild.build({
+	entryPoints: ["main/preload.ts"],
+	bundle: true,
+	outfile: "dist/preload.js",
+	target: "esnext",
+	minify: true,
+	treeShaking: true,
+});

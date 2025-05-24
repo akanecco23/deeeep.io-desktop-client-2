@@ -28,6 +28,8 @@ func main() {
 			app,
 		},
 
+		EnableDefaultContextMenu: false,
+
 		Debug: options.Debug{
 			OpenInspectorOnStartup: true,
 		},

@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 
 import { Icon } from "./components/Icon";
+import { PetSwapperUI } from "./features/petSwapper";
 
 // Make sure script is running on Deeeep.io
 if (!window.location.hostname.match(/(beta\.|alpha\.)?deeeep\.io/) || !document.documentElement.outerHTML) throw "";
@@ -20,6 +21,10 @@ const Button = ({ text, onClick, color }: { text: string; onClick: () => void; c
 	</button>
 );
 
+const tabs = [
+	PetSwapperUI
+]
+
 const Menu = ({ visible, setVisible }: { visible: boolean; setVisible: (visible: boolean) => void }) => {
 	const [opacity, setOpacity] = useState(0);
 	const [show, setShow] = useState(false);
@@ -32,6 +37,8 @@ const Menu = ({ visible, setVisible }: { visible: boolean; setVisible: (visible:
 			setTimeout(() => setShow(false), 300);
 		}
 	}, [visible]);
+
+	const [tabIndex, setTabIndex] = useState(0);
 
 	return (
 		<div
@@ -47,8 +54,32 @@ const Menu = ({ visible, setVisible }: { visible: boolean; setVisible: (visible:
 					<Icon.Close width="1.125em" height="1.125em" />
 				</button>
 				<p className="ddc-modal-title">DDC Settings</p>
-				<div>{/* Main content */}</div>
+				<div className="flex grow">
+					{/* Navigator */}
+					<div>
+						{tabs.map(({ Name }, index) => (
+							<button type="button" className={`px-[20px] py-2 border-r-2 ${index === tabIndex ? "border-blue-400 text-blue-400" : "border-gray-700"}`} key={Name} onClick={() => setTabIndex(index)}>
+								{Name}
+							</button>
+						))}
+					</div>
+
+					{/* Content */}
+					<div className="px-4 py-2 grow">
+						{/* {tabs[tabIndex].Content()} */}
+						{tabs.map(({ Name, Content }, index) => (
+							<div key={Name} style={{ display: index === tabIndex ? "" : "none" }}>
+								{Content()}
+							</div>
+						))}
+					</div>
+				</div>
 				<div className="ddc-modal-footer">
+					{tabs.map(({ Name, FooterButtons }, index) => (
+						<div key={Name} className="flex gap-3" style={{ display: index === tabIndex ? "" : "none" }}>
+							{FooterButtons()}
+						</div>
+					))}
 					<Button text="Close" onClick={() => setVisible(false)} color="gray" />
 				</div>
 			</div>
@@ -72,3 +103,6 @@ const MenuButton = () => {
 };
 const root = createRoot(menuButton);
 root.render(<MenuButton />);
+
+// Miscellaneous adjustments
+document.addEventListener('contextmenu', (e) => e.preventDefault());

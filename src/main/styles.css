@@ -51,7 +51,7 @@ button {
 }
 
 .ddc-modal {
-	@apply relative flex flex-col items-stretch bg-gray-800 shadow-2xl px-3 py-2 border border-gray-700 rounded-xl min-w-80 min-h-20 max-h-[90%];
+	@apply relative flex flex-col items-stretch bg-gray-800 shadow-2xl px-3 py-2 border border-gray-700 rounded-xl w-[40rem] max-w-[calc(100vw-1rem)] h-[20rem] max-h-[calc(100vh-1rem)];
 }
 
 .ddc-modal-title {
@@ -63,4 +63,8 @@ button {
 
 .ddc-modal-footer {
 	@apply flex justify-center items-end gap-3 mt-3;
+}
+
+.ddc-input {
+	@apply bg-gray-900 p-2 border border-gray-600 rounded outline-none text-gray-200 placeholder:text-gray-400;
 }
