@@ -16,9 +16,7 @@ document.querySelector(".sidebar.right > .container > .el-row")?.appendChild(men
 
 const Button = ({ text, onClick, color }: { text: string; onClick: () => void; color: "gray" | "red" | "blue" | "emerald" }) => (
 	<button className={`ddc-btn ${color}`} onClick={onClick} type="button">
-		<span>
-			<span>{text}</span>
-		</span>
+		<span>{text}</span>
 	</button>
 );
 
