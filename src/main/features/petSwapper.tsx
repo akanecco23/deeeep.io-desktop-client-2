@@ -21,17 +21,6 @@ async function swap(targetPet: string, customUrl: string) {
     const objectsManager = exposed.game.gameScene[Object.keys(exposed.game.gameScene).find((key) => exposed.game.gameScene[key] && Object.hasOwn(exposed.game.gameScene[key], "entitiesList")) as string]
     if (!objectsManager) return
 
-    // objectsManager.entitiesList.forEach((entity) => {
-    //     if (entity?.petData?.asset === targetPet) {
-    //         // Update the asset name
-    //         // Deeeep.io will auto-prefix the asset name with "pet_"
-    //         // e.g. "fish.png" -> "pet_fish.png"
-    //         // When loading assets, we have to alias them as "pet_name.png"
-    //         // But when setting petData.asset, we have to use "name.png"
-    //         entity.petData.asset = cached
-    //         entity.updateTexture()
-    //     }
-    // })
     for (const entity of objectsManager.entitiesList) {
         if (entity?.petData?.asset === targetPet) {
             // Update the asset name
