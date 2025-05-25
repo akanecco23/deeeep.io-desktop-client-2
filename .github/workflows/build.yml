@@ -3,11 +3,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  package:
+  build:
     strategy:
       matrix:
         platform: [ubuntu-latest, macos-latest, windows-latest]
-        go-version: [1.18]
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Checkout
@@ -16,7 +15,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v5
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version: 1.24
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
