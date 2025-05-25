@@ -5,8 +5,10 @@ import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 
 import { Icon } from "./components/Icon";
+
 import { PetSwapperUI } from "./features/petSwapper";
 import { SkinSwapperUI } from "./features/skinSwapper";
+import { TerrainSwapperUI } from "./features/terrainSwapper";
 
 // Make sure script is running on Deeeep.io
 if (!window.location.hostname.match(/(beta\.|alpha\.)?deeeep\.io/) || !document.documentElement.outerHTML) throw "";
@@ -24,7 +26,8 @@ const Button = ({ text, onClick, color }: { text: string; onClick: () => void; c
 
 const tabs = [
 	SkinSwapperUI,
-	PetSwapperUI
+	PetSwapperUI,
+	TerrainSwapperUI
 ]
 
 const Menu = ({ visible, setVisible }: { visible: boolean; setVisible: (visible: boolean) => void }) => {
