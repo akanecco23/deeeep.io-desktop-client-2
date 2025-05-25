@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Wails app
         run: |
-          wails build
+          wails build -skipbindings ${{ matrix.platform == 'windows-latest' && '-webview2 embed' || '' }}
 
       - name: Upload executable
         if: matrix.platform == 'ubuntu-latest'
