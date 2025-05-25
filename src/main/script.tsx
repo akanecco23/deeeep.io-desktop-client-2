@@ -6,6 +6,7 @@ import { createRoot } from "react-dom/client";
 
 import { Icon } from "./components/Icon";
 import { PetSwapperUI } from "./features/petSwapper";
+import { SkinSwapperUI } from "./features/skinSwapper";
 
 // Make sure script is running on Deeeep.io
 if (!window.location.hostname.match(/(beta\.|alpha\.)?deeeep\.io/) || !document.documentElement.outerHTML) throw "";
@@ -22,6 +23,7 @@ const Button = ({ text, onClick, color }: { text: string; onClick: () => void; c
 );
 
 const tabs = [
+	SkinSwapperUI,
 	PetSwapperUI
 ]
 
@@ -56,9 +58,9 @@ const Menu = ({ visible, setVisible }: { visible: boolean; setVisible: (visible:
 				<p className="ddc-modal-title">DDC Settings</p>
 				<div className="flex grow">
 					{/* Navigator */}
-					<div>
+					<div className="flex flex-col">
 						{tabs.map(({ Name }, index) => (
-							<button type="button" className={`px-[20px] py-2 border-r-2 ${index === tabIndex ? "border-blue-400 text-blue-400" : "border-gray-700"}`} key={Name} onClick={() => setTabIndex(index)}>
+							<button type="button" className={`px-[20px] h-[40px] border-r-2 text-right ${index === tabIndex ? "border-blue-400 text-blue-400" : "border-gray-700"}`} key={Name} onClick={() => setTabIndex(index)}>
 								{Name}
 							</button>
 						))}
