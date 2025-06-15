@@ -13,12 +13,6 @@ await esbuild.build({
 	target: "esnext",
 	minify: true,
 	treeShaking: true,
-	jsx: "automatic",
-	tsconfigRaw: {
-		compilerOptions: {
-			jsxImportSource: "react",
-		},
-	},
 	plugins: [
 		sassPlugin({
 			type: "style",
